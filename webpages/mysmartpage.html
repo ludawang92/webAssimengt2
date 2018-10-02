@@ -1,0 +1,147 @@
+<!doctype html>
+<html>
+  <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tic-Tac-Toe</title>
+    <style type="text/css">
+         #square{
+           position:relative;
+           margin: 40px 450px;
+           height: 316px;
+           width: 316px;
+           background-color:blue;
+        }
+        #square div{
+            float: left;
+            position:relative;
+            background-color: white;
+            border: 2px;
+            border-radius: 2px;
+            height: 100px;
+            width: 100px;
+            margin-top: 4px;
+            margin-left:4px;   
+         }
+        .img{
+            position:relative;
+            float:left;
+                 
+        }
+  </style>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  </head>
+
+  <body style="background-image: url(../images/background.jpg)"  onload="init()"> 
+<script  type="text/javascript">
+
+var chessboard = new Array();
+var i,j,k=0, img_num=1;
+var myname=new Array("../images/circle.png","../images/false.png");//the array use to save image;
+var win=false;
+
+//initialize the chessboard 
+function init() {
+    var x=document.getElementById("square");
+  //board use to show the image
+   for (i=0;i<3;i++){
+     for (j=0;j<3;j++){
+      x.innerHTML += "<div onclick=drawfigure(this,"+i+","+j+")></div>";      
+     }      
+}
+  //board use to calculate the result
+     for (var i = 0; i < 3; i++) {
+          chessboard[i] = new Array();
+          for (var j = 0; j < 3; j++) {
+            chessboard[i][j] = 0;
+          }
+    }
+}    
+  //draw the circle or false where you click on
+ function drawfigure(obj, x, y){
+   // check if current location is empty
+    if(chessboard[x][y] != 0){
+        alert("The blank is not empty");  
+        return;
+    }
+    chessboard[x][y]=img_num%2+3;//circle for 4 and false for 3
+    obj.innerHTML = '<img src="'+myname[img_num]+'"/>';//draw figure on the board 
+    img_num=(img_num+1)%2;//put circle and false in turn
+    calculate(x,y);
+ }
+ 
+// calculate if some one win the game
+ function calculate(x,y){    
+    var n=x,m=y,sum=0,sum1=0,sum2=0,sum3=0,product=2;
+    //check if the board is full
+    for(var i=0;i<3;i++){
+          for(var j=0;j<3;j++){
+              product=chessboard[i][j]*product;
+          }
+    }
+    //check if someone wins the game.
+      //row
+      for(var i=0;i<3;i++){
+        sum+=chessboard[n][i];
+        judge(sum,0);
+      } 
+      
+       //column
+        for(var i=0;i<3;i++){
+        sum1+=chessboard[i][m];
+        judge(sum1,0);
+      }
+      
+      //left diag0nal
+      if(n+m==2){
+      for(var i=0;i<3;i++){
+        sum2+=chessboard[i][2-i];
+        judge(sum2,0);
+      }
+    }
+     //right diagonal
+      if(n==m){
+      for(var i=0;i<3;i++){
+        sum3+=chessboard[i][i];
+       judge(sum3,0);
+      }
+    }
+    judge(1,product);
+ }
+ 
+ //judge if there is somewin the game
+ function judge(sum,product){
+     if(sum==12){
+        //X(false) win the game, reload to re-start
+         alert("X win"); 
+         win=true;
+         window.location.reload(); 
+         
+    }
+        //X(false) win the game, reload to re-start
+        else if(sum==9){
+         alert("O win");
+         win=true;
+         window.location.reload();
+        }
+      // if board is full and no one wins the game.
+    if(product!=0&&!win){
+        alert("Game Tie");
+        window.location.reload();
+    }
+        
+}
+    
+
+</script>
+    <div class="container"> 
+      <h1>Tic-Tac-Toe</h1><br>
+      Draw false and circle in turn<br>
+      First one getting 3 in a row, column or diagonal wins the game~<br>
+      Start with the false<br>
+      <button onclick="{location.href='../index.html'}">Back to My Home Page</button> 
+      <div id="square" class="row">
+      </div>
+    </div>
+    
+  </body>
+</html>

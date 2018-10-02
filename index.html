@@ -1,0 +1,82 @@
+<!doctype <!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Luda Wang</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script language="JavaScript">
+
+            function load_iframe(lfile) {
+                iframe=document.getElementById('myframe').src = lfile;
+            }
+        
+            var iframeids=["myframe"]
+        
+            </script>
+</head>
+<body style="background-image:url(./images/background.jpg)">
+    <div class="container" >
+            <div class="row">
+                <div class="col-sm-4 text-center" >
+                    <h1>Luda Wang</h1>
+                    <h4>pittID:luw20</h4>
+                </div>
+                <div class="col-sm-4">
+
+                </div>
+                <div class="col-sm-4">
+                    <img src="./images/mySelf.jpg" class="img-circle" alt="mySelf">
+                </div>
+            </div>
+            <br><br>
+            <div class="row">
+                <div class="col-sm-3" >
+                        <br><br><br>
+                        <h1><a style="color:black" href="./index.html">Home</a></h1><br><br>
+                        <h1><a style="color:black" href="./webpages/education2.html">Education</a></h1><br><br>
+                        <h1><a style="color:black" href="./webpages/transcript2.html">Transcript</a></h1><br><br>
+                        <h1><a style="color:black" href="./webpages/mysmartpage.html">MySmartPage</a></h1><br><br>
+                </div>
+            <div class="col-sm-6" >
+                <div class="col-sm-4" >
+                        <ul class="nav navbar-nav">
+                                <li class="text-center" >
+                                        <a style="color:black" onclick = "load_iframe('./webpages/d1.html' )" >
+                                            Personal Statement
+                                        </a>
+                                </li>
+                        </ul>
+                </div>
+                <div class="col-sm-4" >
+                        <ul class="nav navbar-nav ">
+                                    <li class="text-center"  >
+                                        <a style="color:black"onclick = "load_iframe('./webpages/d2.html')">
+                                            My Goal
+                                        </a>
+                                    </li>
+                        </ul>
+                </div>
+                <div class="col-sm-4" >
+                        <ul class="nav navbar-nav ">
+                                    <li class="text-center" >
+                                        <a style="color:black" onclick = "load_iframe('./webpages/d3.html')">
+                                            Current Class
+                                        </a>
+                                </li>
+                        </ul>
+                </div>
+                <iframe id="myframe" style="width: 100%;height: 50%;position: relative;" src='./webpages/welcome.html' scrolling="yes"></iframe>
+            </div>
+            <div class="col-sm-3" >
+                    <a href="mailto:luw20@pitt.edu">
+                            <img src="./images/mailicon.jpg" alt="email pic">
+                            <span style="color:darkblue;">Mail To Me</span>
+                    </a>
+            </div>
+            </div>
+    </div>
+    
+</body>
+</html>
